@@ -1,0 +1,45 @@
+EnableJpaAuditing:
+    1. @EnableJpaAuditing annotation is used to enable JPA Auditing, annotate main class with @EnableJpaAuditing annotation.
+    2. @EntityListeners(AuditingEntityListener.class) annotation on the entity class to enable auditing for that entity.
+    3. @CreatedDate, @LastModifiedDate, @CreatedBy, @LastModifiedBy annotations are used to enable auditing fields in the entity class.
+    4. @EnableJpaAuditing(dateTimeProviderRef = "dateTimeProvider") annotation is used to provide custom DateTimeProvider.
+    5. Implement AuditorAware interface to provide the current logged-in user.
+
+DTO Validation:
+    1. Annotate the DTO attributes with 
+        @NotNull, @Size, @Email, @Pattern, @Min, @Max, @Positive, @PositiveOrZero, @Negative, @NegativeOrZero, @NotBlank, @NotEmpty, @Null, @Future, 
+        @Past, @FutureOrPresent, @PastOrPresent annotations.
+    2. Use @Valid annotation to validate the nested DTO objects.
+    3. Use @Validated annotation to validate the DTO object.
+    
+JPA notes:
+    1. @Entity annotation is used to mark the class as an entity.
+    2. @Table annotation is used to provide the table name for the entity.
+    3. @Id annotation is used to mark the field as primary key.
+    4. @GeneratedValue annotation is used to generate the primary key value.
+    5. @Column annotation is used to provide the column name for the field.
+    6. @Transient annotation is used to mark the field as not persistent.
+    7. @OneToOne, @OneToMany, @ManyToOne, @ManyToMany annotations are used to define the relationship between entities.
+    8. @JoinColumn annotation is used to provide the join column name for the relationship.
+    9. @JoinTable annotation is used to provide the join table name for the many-to-many relationship.
+    10. @Embedded annotation is used to embed the object into the entity.
+    11. @Embeddable annotation is used to mark the class as embeddable.
+    12. @MappedSuperclass annotation is used to mark the class as a superclass.
+    13. @Inheritance(strategy = InheritanceType.SINGLE_TABLE) annotation is used to define the inheritance strategy.
+    14. @DiscriminatorColumn annotation is used to provide the discriminator column name.
+    15. @DiscriminatorValue annotation is used to provide the discriminator value for the entity.
+    16. @EntityListeners(AuditingEntityListener.class) annotation is used to enable auditing for the entity.
+    17. @CreatedDate, @LastModifiedDate, @CreatedBy, @LastModifiedBy annotations are used to enable auditing fields in the entity.
+    18. @EnableJpaAuditing annotation is used to enable JPA Auditing.
+    19. @EnableJpaRepositories(basePackages = "com.example.repository") annotation is used to enable JPA repositories.
+    20. @Query annotation is used to define the custom query in the repository.
+    21. @Modifying annotation is used to mark the query as modifying query.
+    22. @Transactional annotation is used to mark the method as transactional.
+    23. @EntityGraph(attributePaths = "department") annotation is used to fetch the associated entity eagerly.
+    24. @NamedEntityGraph(name = "Employee.department", attributeNodes = @NamedAttributeNode("department")) annotation is used to define the named entity graph.
+    25. @NamedAttributeNode annotation is used to define the attribute node in the named entity graph.
+    26. @NamedSubgraph annotation is used to define the subgraph in the named entity graph.
+    27. @NamedEntityGraphs({@NamedEntityGraph(name = "Employee.department", attributeNodes = @NamedAttributeNode("department"))}) annotation is used to define multiple named entity graphs.
+    28. @EntityGraph(attributePaths = {"department", "projects"}) annotation is used to fetch multiple associated entities eagerly.
+
+
