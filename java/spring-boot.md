@@ -43,14 +43,7 @@
 - Not ideal for required dependencies, as it can lead to uninitialized or null values.
 - Spring discourages field injection due to its downsides, like violating best practices in object-oriented design.
 
-## Bean Scope
-
-- **Singleton:** Only one object gets created when you use `getBean`.
-- **Prototype:** Different object is created every time you use `getBean`.
-- **Request**
-- **Session**
-
-## JSP
+# JSP
 
 Spring Boot does not support JSP by default, we have to install Tomcat Jasper same version of Tomcat Jasper as Tomcat server that we will use to convert JSP to servlet.
 
@@ -65,34 +58,6 @@ To use JSP with Spring Boot, you do need Jasper, the JSP engine for Apache Tomca
 - Some features like hot reloading may not work as smoothly with JSP, especially when using embedded containers.
 
 In summary: yes, you need Tomcat Jasper for JSP compilation, but keep in mind that using JSP with Spring Boot is not recommended, and it might require additional setup and careful handling.
-
-# Aspect-Oriented Programming (AOP)
-
-Aspect-Oriented Programming (AOP) is a programming paradigm that helps in separating cross-cutting concerns from the main business logic. Here's a breakdown of the core AOP concepts:
-
-1. **Aspect:** An aspect encapsulates a concern that cuts across multiple classes or modules. For example, logging, security, or transaction management. It contains the logic that is applied to multiple points in an application.
-2. **Join Point:** A specific point in the execution of the program where an aspect can be applied. Examples include method calls, object instantiations, or field access.
-3. **Advice:** The actual code that is executed at a join point. Different types of advice include:
-   - **Before Advice:** Runs before a join point.
-   - **After Advice:** Runs after a join point.
-   - **Around Advice:** Runs both before and after the join point, allowing more control.
-4. **Pointcut:** A set of join points where the advice should be applied. Pointcuts are typically defined using expressions to match specific join points in the code (e.g., all methods in a certain class).
-5. **Weaving:** The process of linking aspects with other application code at specified join points. Weaving can occur at different times:
-   - **Compile-time Weaving:** Aspects are woven into the code at compile time.
-   - **Load-time Weaving:** Aspects are woven during class loading, after the code is compiled but before it is executed.
-   - **Runtime Weaving:** Aspects are applied during program execution.
-6. **Target Object:** The object whose method or behavior is being advised or intercepted by an aspect.
-
-By using AOP, developers can modularize concerns that span multiple parts of an application, improving code readability, maintainability, and separation of concerns.
-
-
-# EnableJpaAuditing
-
-1. `@EnableJpaAuditing` annotation is used to enable JPA Auditing, annotate main class with `@EnableJpaAuditing` annotation.
-2. `@EntityListeners(AuditingEntityListener.class)` annotation on the entity class to enable auditing for that entity.
-3. `@CreatedDate`, `@LastModifiedDate`, `@CreatedBy`, `@LastModifiedBy` annotations are used to enable auditing fields in the entity class.
-4. `@EnableJpaAuditing(dateTimeProviderRef = "dateTimeProvider")` annotation is used to provide custom DateTimeProvider.
-5. Implement `AuditorAware` interface to provide the current logged-in user.
 
 # DTO Validation
 
@@ -132,6 +97,14 @@ By using AOP, developers can modularize concerns that span multiple parts of an 
 26. `@NamedSubgraph` annotation is used to define the subgraph in the named entity graph.
 27. `@NamedEntityGraphs({@NamedEntityGraph(name = "Employee.department", attributeNodes = @NamedAttributeNode("department"))})` annotation is used to define multiple named entity graphs.
 28. `@EntityGraph(attributePaths = {"department", "projects"})` annotation is used to fetch multiple associated entities eagerly.
+
+## EnableJpaAuditing
+
+1. `@EnableJpaAuditing` annotation is used to enable JPA Auditing, annotate main class with `@EnableJpaAuditing` annotation.
+2. `@EntityListeners(AuditingEntityListener.class)` annotation on the entity class to enable auditing for that entity.
+3. `@CreatedDate`, `@LastModifiedDate`, `@CreatedBy`, `@LastModifiedBy` annotations are used to enable auditing fields in the entity class.
+4. `@EnableJpaAuditing(dateTimeProviderRef = "dateTimeProvider")` annotation is used to provide custom DateTimeProvider.
+5. Implement `AuditorAware` interface to provide the current logged-in user.
 
 # How to build REST API?
 
@@ -267,7 +240,11 @@ Key concepts in AOP:
    - `@Around`: Runs before and after the method execution.
 3. **Join Point**: A point during the execution of a program, such as the execution of a method or the handling of an exception.
 4. **Pointcut**: A predicate that matches join points. Advice is associated with a pointcut expression and runs at any join point matched by the pointcut.
-5. **Weaving**: The process of linking aspects with other application types or objects to create an advised object. This can be done at compile time, load time, or runtime.
+5. **Weaving:** The process of linking aspects with other application code at specified join points. Weaving can occur at different times:
+   - **Compile-time Weaving:** Aspects are woven into the code at compile time.
+   - **Load-time Weaving:** Aspects are woven during class loading, after the code is compiled but before it is executed.
+   - **Runtime Weaving:** Aspects are applied during program execution.
+6. **Target Object:** The object whose method or behavior is being advised or intercepted by an aspect.
 
 Example of AOP in Spring:
 
@@ -306,6 +283,7 @@ public class MySpringBootApplication {
 ```
 
 This annotation enables support for handling components marked with `@Aspect` annotations, allowing Spring to process and apply the aspects.
+By using AOP, developers can modularize concerns that span multiple parts of an application, improving code readability, maintainability, and separation of concerns.
 
 # Spring Boot Request Lifecycle
 
