@@ -54,5 +54,7 @@ The purpose of this repository is to provide a well-structured and easily access
 - Serve as a study guide for learning new technologies.
 - Provide best practices and code examples for common tasks.
 - Facilitate knowledge sharing among developers.
+- Encourage contributions and improvements to the notes.
+- Help developers prepare for interviews and technical discussions.
 
 Feel free to contribute by adding new notes or improving existing ones.
