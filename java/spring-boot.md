@@ -1,3 +1,91 @@
+# DI injection methods in spring boot
+
+### Constructor Injection
+
+**Description:** Dependencies are provided through the class constructor. Spring injects the dependencies when it instantiates the bean.
+
+**Pros:**
+- Ensures immutability since dependencies are provided at object creation and cannot be changed afterward.
+- Makes the dependencies explicit and easy to understand.
+- Dependencies are required to instantiate the object, reducing the chances of null values.
+- Ideal for mandatory dependencies.
+- Detects circular dependencies early.
+
+**Cons:**
+- Can become cumbersome with too many dependencies, leading to long constructors.
+
+### Setter Injection
+
+**Description:** Dependencies are injected via public setter methods after the object is created.
+
+**Pros:**
+- Useful for optional dependencies, since you can choose whether or not to set the dependency.
+- More flexible, allowing you to change the dependencies later.
+- Avoids cluttered constructors in case of too many dependencies.
+
+**Cons:**
+- Does not guarantee immutability, as the dependencies can be changed after object creation.
+- The object can be in an incomplete state if the setter is not called, leading to potential NullPointerExceptions.
+- Less suitable for required dependencies.
+
+### Field Injection
+
+**Description:** Dependencies are injected directly into the class fields, usually by annotating the fields with `@Autowired`.
+
+**Pros:**
+- Very simple to use and less boilerplate code (no need for setters or constructors).
+
+**Cons:**
+- Violates encapsulation since the dependencies are not set through constructors or setters, but directly injected into the fields.
+- Harder to test: Mocking and injecting dependencies in unit tests is more difficult.
+- Dependencies are less visible, making it harder to understand what the class depends on.
+- Immutability is not ensured since fields can be modified post-construction.
+- Not ideal for required dependencies, as it can lead to uninitialized or null values.
+- Spring discourages field injection due to its downsides, like violating best practices in object-oriented design.
+
+## Bean Scope
+
+- **Singleton:** Only one object gets created when you use `getBean`.
+- **Prototype:** Different object is created every time you use `getBean`.
+- **Request**
+- **Session**
+
+## JSP
+
+Spring Boot does not support JSP by default, we have to install Tomcat Jasper same version of Tomcat Jasper as Tomcat server that we will use to convert JSP to servlet.
+
+**Spring Boot does not support JSP by default:**
+Spring Boot prefers using Thymeleaf or Freemarker for rendering views because JSP has several limitations when working with embedded servlet containers (like the embedded Tomcat Spring Boot uses by default). JSP requires specific servlet handling and configurations which don't work well with Spring Boot's default setup.
+
+**Tomcat Jasper for JSP compilation:**
+To use JSP with Spring Boot, you do need Jasper, the JSP engine for Apache Tomcat. Spring Boot does not include the Jasper dependency by default, so you'll need to add it manually. You need to include the `tomcat-jasper` dependency in your `pom.xml` (for Maven) or `build.gradle` (for Gradle). The version of `tomcat-jasper` should match the version of the embedded Tomcat that Spring Boot uses. If you are using an external Tomcat server (not the embedded one), the version should align with that.
+
+**Limitations of JSP with Spring Boot:**
+- JSP files need to be placed in `src/main/webapp/WEB-INF/jsp/`, and you might need to customize your ViewResolver bean.
+- Some features like hot reloading may not work as smoothly with JSP, especially when using embedded containers.
+
+In summary: yes, you need Tomcat Jasper for JSP compilation, but keep in mind that using JSP with Spring Boot is not recommended, and it might require additional setup and careful handling.
+
+# Aspect-Oriented Programming (AOP)
+
+Aspect-Oriented Programming (AOP) is a programming paradigm that helps in separating cross-cutting concerns from the main business logic. Here's a breakdown of the core AOP concepts:
+
+1. **Aspect:** An aspect encapsulates a concern that cuts across multiple classes or modules. For example, logging, security, or transaction management. It contains the logic that is applied to multiple points in an application.
+2. **Join Point:** A specific point in the execution of the program where an aspect can be applied. Examples include method calls, object instantiations, or field access.
+3. **Advice:** The actual code that is executed at a join point. Different types of advice include:
+   - **Before Advice:** Runs before a join point.
+   - **After Advice:** Runs after a join point.
+   - **Around Advice:** Runs both before and after the join point, allowing more control.
+4. **Pointcut:** A set of join points where the advice should be applied. Pointcuts are typically defined using expressions to match specific join points in the code (e.g., all methods in a certain class).
+5. **Weaving:** The process of linking aspects with other application code at specified join points. Weaving can occur at different times:
+   - **Compile-time Weaving:** Aspects are woven into the code at compile time.
+   - **Load-time Weaving:** Aspects are woven during class loading, after the code is compiled but before it is executed.
+   - **Runtime Weaving:** Aspects are applied during program execution.
+6. **Target Object:** The object whose method or behavior is being advised or intercepted by an aspect.
+
+By using AOP, developers can modularize concerns that span multiple parts of an application, improving code readability, maintainability, and separation of concerns.
+
+
 # EnableJpaAuditing
 
 1. `@EnableJpaAuditing` annotation is used to enable JPA Auditing, annotate main class with `@EnableJpaAuditing` annotation.
