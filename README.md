@@ -59,3 +59,11 @@ The purpose of this repository is to provide a well-structured and easily access
 - Help developers prepare for interviews and technical discussions.
 
 Feel free to contribute by adding new notes or improving existing ones.
+
+## Suggested Improvements
+
+- Write about each topic in a separate file.
+
+```
+prog lang -> framework -> topic
+```
