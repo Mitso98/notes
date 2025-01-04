@@ -1,6 +1,7 @@
 # Notes Repository
 
-This repository is dedicated to writing and organizing notes about different programming languages and frameworks. It serves as a comprehensive reference for developers to quickly access important information, best practices, and code examples.
+This repository is dedicated to writing and organizing notes about different programming languages and frameworks, and documenting advanced topics or situations that face use in the daily work.
+It serves as a comprehensive reference for developers to quickly access important information, best practices, and code examples.
 
 ## Contents
 
@@ -50,10 +51,10 @@ This repository is dedicated to writing and organizing notes about different pro
 
 The purpose of this repository is to provide a well-structured and easily accessible collection of notes for developers. It aims to:
 
-- Help developers quickly find information about various programming languages and frameworks.
 - Serve as a study guide for learning new technologies.
 - Provide best practices and code examples for common tasks.
 - Facilitate knowledge sharing among developers.
+- Help developers quickly find information about various programming languages and frameworks.
 - Encourage contributions and improvements to the notes.
 - Help developers prepare for interviews and technical discussions.
 
