@@ -7,6 +7,9 @@
   - Search: O(n)
   - Insertion: O(n)
   - Deletion: O(n)
+- **When to Use**: When you need fast access to elements by index and the size of the collection is fixed.
+- **When Not to Use**: When you need to frequently insert or delete elements, or when the size of the collection can change.
+- **Real-Life Example**: Storing the daily temperatures of a week.
 
 #### Example:
 ```java
@@ -37,6 +40,9 @@ public class ArrayExample {
   - Search: O(n)
   - Insertion: O(n) (amortized O(1) if adding at the end)
   - Deletion: O(n)
+- **When to Use**: When you need a dynamic array that can grow and shrink in size, and you need fast access to elements by index.
+- **When Not to Use**: When you need to frequently insert or delete elements in the middle of the list.
+- **Real-Life Example**: Managing a list of students in a classroom where students can join or leave.
 
 #### Example:
 ```java
@@ -71,6 +77,9 @@ public class ArrayListExample {
   - Search: O(n)
   - Insertion: O(1)
   - Deletion: O(1)
+- **When to Use**: When you need to frequently insert or delete elements, especially at the beginning or end of the list.
+- **When Not to Use**: When you need fast access to elements by index.
+- **Real-Life Example**: Implementing a browser's back and forward navigation.
 
 #### Example:
 ```java
@@ -105,6 +114,9 @@ public class LinkedListExample {
   - Search: O(1) (amortized)
   - Insertion: O(1) (amortized)
   - Deletion: O(1) (amortized)
+- **When to Use**: When you need fast access to key-value pairs and the order of elements is not important.
+- **When Not to Use**: When you need to maintain the order of elements or need to frequently iterate over the keys in a specific order.
+- **Real-Life Example**: Storing user information in a web application where each user has a unique ID.
 
 #### Example:
 ```java
@@ -139,6 +151,9 @@ public class HashMapExample {
   - Search: O(n)
   - Insertion: O(1)
   - Deletion: O(1)
+- **When to Use**: When you need to manage a collection of elements with LIFO access, such as for undo functionality or parsing expressions.
+- **When Not to Use**: When you need random access to elements or need to frequently iterate over the elements.
+- **Real-Life Example**: Implementing undo functionality in text editors.
 
 #### Example:
 ```java
@@ -169,6 +184,9 @@ public class StackExample {
   - Search: O(n)
   - Insertion: O(1)
   - Deletion: O(1)
+- **When to Use**: When you need to manage a collection of elements with FIFO access, such as for task scheduling or buffering.
+- **When Not to Use**: When you need random access to elements or need to frequently iterate over the elements.
+- **Real-Life Example**: Managing tasks in a printer queue.
 
 #### Example:
 ```java
@@ -193,4 +211,4 @@ public class QueueExample {
 }
 ```
 
-These examples cover some of the most commonly used data structures in Java, along with their complexities and basic methods.
+These examples cover some of the most commonly used data structures in Java, along with their complexities, basic methods, guidelines on when to use or avoid them, and real-life use cases.
