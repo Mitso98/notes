@@ -211,4 +211,152 @@ public class QueueExample {
 }
 ```
 
+## 7. HashSet
+- **Description**: A hash table-based implementation of the Set interface.
+- **Complexity**:
+  - Access: O(1) (amortized)
+  - Search: O(1) (amortized)
+  - Insertion: O(1) (amortized)
+  - Deletion: O(1) (amortized)
+- **When to Use**: When you need a collection of unique elements with fast access.
+- **When Not to Use**: When you need to maintain the order of elements.
+- **Real-Life Example**: Storing a collection of unique user IDs.
+
+#### Example:
+```java
+import java.util.HashSet;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+        set.add(10);
+        set.add(20);
+        set.add(30);
+
+        // Access element
+        System.out.println("Set contains 20: " + set.contains(20));
+
+        // Iterate over set
+        for (Integer element : set) {
+            System.out.println("Element: " + element);
+        }
+
+        // Remove element
+        set.remove(20);
+        System.out.println("After removal, set contains 20: " + set.contains(20));
+    }
+}
+```
+
+## 8. TreeMap
+- **Description**: A Red-Black tree-based implementation of the NavigableMap interface.
+- **Complexity**:
+  - Access: O(log n)
+  - Search: O(log n)
+  - Insertion: O(log n)
+  - Deletion: O(log n)
+- **When to Use**: When you need a sorted map with fast access.
+- **When Not to Use**: When you don't need the elements to be sorted.
+- **Real-Life Example**: Storing a dictionary where keys are words and values are definitions.
+
+#### Example:
+```java
+import java.util.TreeMap;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        TreeMap<String, Integer> map = new TreeMap<>();
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
+
+        // Access element
+        System.out.println("Value for key 'two': " + map.get("two"));
+
+        // Iterate over map
+        for (String key : map.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + map.get(key));
+        }
+
+        // Remove element
+        map.remove("two");
+        System.out.println("After removal, value for key 'two': " + map.get("two"));
+    }
+}
+```
+
+## 9. ConcurrentHashMap
+- **Description**: A thread-safe implementation of the Map interface.
+- **Complexity**:
+  - Access: O(1) (amortized)
+  - Search: O(1) (amortized)
+  - Insertion: O(1) (amortized)
+  - Deletion: O(1) (amortized)
+- **When to Use**: When you need a thread-safe map with fast access.
+- **When Not to Use**: When thread safety is not a concern.
+- **Real-Life Example**: Storing session data in a web application where multiple threads access the data concurrently.
+
+#### Example:
+```java
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapExample {
+    public static void main(String[] args) {
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
+
+        // Access element
+        System.out.println("Value for key 'two': " + map.get("two"));
+
+        // Iterate over map
+        for (String key : map.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + map.get(key));
+        }
+
+        // Remove element
+        map.remove("two");
+        System.out.println("After removal, value for key 'two': " + map.get("two"));
+    }
+}
+```
+
+## 10. Hash Table
+- **Description**: A data structure that maps keys to values using a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.
+- **Complexity**:
+  - Access: O(1) (amortized)
+  - Search: O(1) (amortized)
+  - Insertion: O(1) (amortized)
+  - Deletion: O(1) (amortized)
+- **When to Use**: When you need fast access to key-value pairs and the order of elements is not important.
+- **When Not to Use**: When you need to maintain the order of elements or need to frequently iterate over the keys in a specific order.
+- **Real-Life Example**: Implementing a cache where you need quick access to frequently used data.
+
+#### Example:
+```java
+import java.util.Hashtable;
+
+public class HashTableExample {
+    public static void main(String[] args) {
+        Hashtable<String, Integer> table = new Hashtable<>();
+        table.put("one", 1);
+        table.put("two", 2);
+        table.put("three", 3);
+
+        // Access element
+        System.out.println("Value for key 'two': " + table.get("two"));
+
+        // Iterate over table
+        for (String key : table.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + table.get(key));
+        }
+
+        // Remove element
+        table.remove("two");
+        System.out.println("After removal, value for key 'two': " + table.get("two"));
+    }
+}
+```
+
 These examples cover some of the most commonly used data structures in Java, along with their complexities, basic methods, guidelines on when to use or avoid them, and real-life use cases.
